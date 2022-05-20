@@ -3,4 +3,4 @@
 
 ## License
 
-[0BSD](./LICENSE) © [John Dunning](https://github.com/fwextensions)
+[MIT](./LICENSE) © [John Dunning](https://github.com/fwextensions)
