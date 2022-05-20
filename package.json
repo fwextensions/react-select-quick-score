@@ -2,11 +2,6 @@
   "name": "react-select-quick-score",
   "version": "0.0.1",
   "description": "react-select supercharged with QuickScore's smart autocomplete.",
-  "license": "MIT",
-  "author": "John Dunning (https://github.com/fwextensions)",
-  "repository": "github:fwextensions/react-select-quick-score",
-  "homepage": "https://github.com/fwextensions/react-select-quick-score",
-  "bugs": "https://github.com/fwextensions/react-select-quick-score/issues",
   "keywords": [
     "react-select",
     "quick-score",
@@ -17,9 +12,21 @@
     "combobox",
     "react"
   ],
+  "homepage": "https://github.com/fwextensions/react-select-quick-score",
+  "bugs": "https://github.com/fwextensions/react-select-quick-score/issues",
+  "repository": "github:fwextensions/react-select-quick-score",
+  "license": "MIT",
+  "author": "John Dunning (https://github.com/fwextensions)",
+  "main": "dist/react-select-quick-score.umd.js",
+  "module": "dist/react-select-quick-score.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "prepare": "npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -35,6 +42,7 @@
     "@types/react-dom": "^18.0.0",
     "@vitejs/plugin-react": "^1.3.0",
     "typescript": "^4.6.4",
-    "vite": "^2.9.9"
+    "vite": "^2.9.9",
+    "vite-plugin-dts": "^1.1.1"
   }
 }

@@ -1,7 +1,33 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import {defineConfig} from "vite";
+import react from "@vitejs/plugin-react";
+import dts from "vite-plugin-dts";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()]
-})
+	plugins: [
+		react(),
+		dts()
+	],
+	build: {
+		lib: {
+			entry: "src/index.ts",
+			name: "ReactSelectQuickScore"
+		},
+		sourcemap: true,
+		emptyOutDir: true,
+		rollupOptions: {
+			external: [
+				"react",
+				"react-select"
+			],
+			output: {
+				globals: {
+					react: "React",
+					"react-select": "ReactSelect"
+				}
+			}
+		}
+	},
+	optimizeDeps: {
+		exclude: ["quick-score"]
+	}
+});
