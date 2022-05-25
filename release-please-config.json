@@ -1,0 +1,13 @@
+{
+	"packages": {
+		".": {}
+	},
+	"release-as": "0.0.1",
+	"bootstrap-sha": "a0b43d706c190c3ca949a99153c2bbcac542ee76",
+	"last-release-sha": "a0b43d706c190c3ca949a99153c2bbcac542ee76",
+	"bump-minor-pre-major": true,
+	"bump-patch-for-minor-pre-major": true,
+	"draft": true,
+	"draft-pull-request": true,
+	"prerelease": true
+}
