@@ -21,7 +21,6 @@
 ### Features
 
 * Add index.d.ts to built package ([f3c3331](https://github.com/fwextensions/react-select-quick-score/commit/f3c33312b11d892d5a22ea8dde007c264b18e27d))
-* **ci:** Add release-please.yml workflow ([daedf52](https://github.com/fwextensions/react-select-quick-score/commit/daedf52ed9717c91c50003d5a8fdc14c0562f6d0))
 * Forward the ref to the wrapped `Select` ([f3c3331](https://github.com/fwextensions/react-select-quick-score/commit/f3c33312b11d892d5a22ea8dde007c264b18e27d))
 * Use Vite library mode for the package ([f3c3331](https://github.com/fwextensions/react-select-quick-score/commit/f3c33312b11d892d5a22ea8dde007c264b18e27d))
 
