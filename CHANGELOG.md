@@ -1,5 +1,20 @@
 # Changelog
 
+### [0.0.3](https://github.com/fwextensions/react-select-quick-score/compare/react-select-quick-score-v0.0.2...react-select-quick-score-v0.0.3) (2022-05-25)
+
+
+### Features
+
+* Add `useQuickScore.test.tsx` ([5ef23a8](https://github.com/fwextensions/react-select-quick-score/commit/5ef23a87e07d21566391fce337ee890b5f8f0e8b))
+* Add test comparing default menu sort with base `Select` ([5ef23a8](https://github.com/fwextensions/react-select-quick-score/commit/5ef23a87e07d21566391fce337ee890b5f8f0e8b))
+* Add vitest for testing ([5ef23a8](https://github.com/fwextensions/react-select-quick-score/commit/5ef23a87e07d21566391fce337ee890b5f8f0e8b))
+
+
+### Bug Fixes
+
+* Add `coverage/` to `.gitignore` ([5ef23a8](https://github.com/fwextensions/react-select-quick-score/commit/5ef23a87e07d21566391fce337ee890b5f8f0e8b))
+* Export named options from `assets/bookmarks.ts` ([5ef23a8](https://github.com/fwextensions/react-select-quick-score/commit/5ef23a87e07d21566391fce337ee890b5f8f0e8b))
+
 ### [0.0.2](https://github.com/fwextensions/react-select-quick-score/compare/react-select-quick-score-v0.0.1...react-select-quick-score-v0.0.2) (2022-05-25)
 
 
