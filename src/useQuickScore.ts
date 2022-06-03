@@ -13,7 +13,7 @@ export function useQuickScore<T>(
 			let result: T[] = [];
 
 			if (qsRef.current) {
-				result = qsRef.current.search(query).map(({item}) => item);
+				result = qsRef.current.search(query).map(({ item }) => item);
 			}
 
 			return result;
