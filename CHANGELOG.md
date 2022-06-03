@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.0.4](https://github.com/fwextensions/react-select-quick-score/compare/react-select-quick-score-v0.0.3...react-select-quick-score-v0.0.4) (2022-06-03)
+
+
+### Features
+
+* **ci:** Add custom changelog section headers ([fa8b251](https://github.com/fwextensions/react-select-quick-score/commit/fa8b251ba5118700ba4417e43b15c14fd087f76c))
+* Support `defaultInputValue` to show correct options on mount ([b6a8f8a](https://github.com/fwextensions/react-select-quick-score/commit/b6a8f8a017dbeff4e78c3932536c50419ad69020))
+* Support searching within option groups ([b6a8f8a](https://github.com/fwextensions/react-select-quick-score/commit/b6a8f8a017dbeff4e78c3932536c50419ad69020))
+* **test:** Add tests for calling `ref.focus()` and groups ([b6a8f8a](https://github.com/fwextensions/react-select-quick-score/commit/b6a8f8a017dbeff4e78c3932536c50419ad69020))
+
+
+### Bug Fixes
+
+* **ci:** Remove unneeded config keys ([fa8b251](https://github.com/fwextensions/react-select-quick-score/commit/fa8b251ba5118700ba4417e43b15c14fd087f76c))
+
 ### [0.0.3](https://github.com/fwextensions/react-select-quick-score/compare/react-select-quick-score-v0.0.2...react-select-quick-score-v0.0.3) (2022-05-25)
 
 

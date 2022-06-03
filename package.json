@@ -1,6 +1,6 @@
 {
   "name": "react-select-quick-score",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Supercharge react-select with QuickScore's smart autocomplete.",
   "keywords": [
     "react-select",
