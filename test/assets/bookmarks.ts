@@ -1186,3 +1186,5 @@ export const bookmarks = [
 ];
 
 export const options = bookmarks.map(({ title, url }) => ({ label: title, value: url }));
+export const githubOptions = options.filter(({ label }) => /^github/i.test(label));
+export const reactOptions = options.filter(({ label }) => /^react/i.test(label));
