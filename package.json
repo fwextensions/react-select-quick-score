@@ -24,7 +24,6 @@
     "dist"
   ],
   "scripts": {
-    "install": "npm link quick-score && echo '=== LINKING quick-score ==='",
     "dev": "vite",
     "build": "tsc && vite build",
     "test": "vitest",
@@ -33,7 +32,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "quick-score": "^0.1.0"
+    "quick-score": "^0.2.0"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
