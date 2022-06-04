@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import Select, {
 	GroupBase,
+	InputActionMeta,
 	Props,
 	SelectInstance
 } from "react-select";
@@ -90,18 +91,29 @@ export default forwardRef(function SelectQS<
 	props: Props,
 	ref: ForwardedRef<SelectInstance>)
 {
-	const { options, defaultInputValue = "", ...restProps } = props;
+	const {
+		options,
+		onInputChange,
+		defaultInputValue = "",
+		...restProps
+	} = props;
 	const [query, setQuery] = useState(defaultInputValue);
 	const [qsInstances, setQSInstances] =
 		useState(() => createQSInstances(options));
 	const [matchingOptions, setMatchingOptions] =
 		useState(() => searchQSInstances(qsInstances, defaultInputValue));
 
-	const handleInputChange = useCallback((input: string) => {
+	const handleInputChange = useCallback((newValue: string, actionMeta: InputActionMeta) => {
 			// store the query in case the options are updated while there's text in
 			// the input, so that the useEffect below can apply it to the new options
-		setQuery(input);
-		setMatchingOptions(searchQSInstances(qsInstances, input));
+		setQuery(newValue);
+		setMatchingOptions(searchQSInstances(qsInstances, newValue));
+
+		if (typeof onInputChange === "function") {
+				// trigger the onInputChange prop the caller supplied, since we use
+				// our own in the Select below
+			onInputChange(newValue, actionMeta);
+		}
 	}, []);
 
 	useEffect(() => {
