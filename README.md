@@ -4,7 +4,9 @@
 
 Instead of the limited type-ahead available in `react-select` components, where the user has to type an exact substring to match a menu item, QuickScore lets users type just a few letters to quickly display a list of sensible results, sorted by how well the query matches.  [See a demo](https://fwextensions.github.io/quick-score-demo/)
 
-QuickScore is fast, dependency-free, and is just 2KB when minified and gzipped.
+<img src="https://user-images.githubusercontent.com/61631/172030812-b0b564ed-4c3e-4bc7-9b64-d0f795ae8ff2.png" alt="screenshot" width="719">
+
+QuickScore is fast, dependency-free, and is just 2KB when minified and gzipped, so it adds only a little weight to `react-select`.
 
 
 ## Install
