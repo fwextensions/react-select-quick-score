@@ -118,6 +118,33 @@ describe("SelectQS", () => {
 		expect(document.activeElement.tagName).toBe("INPUT");
 	});
 
+	test("onInputChange prop is still called when query changes", () => {
+		const query = "zom";
+		const InputDisplay = () => {
+			const displayRef = useRef(null);
+
+			return (
+				<>
+					<SelectQS
+						{...TestProps}
+						options={options}
+						autoFocus
+						onInputChange={(newValue) => displayRef.current.textContent = newValue}
+					/>
+					<div
+						id="display"
+						ref={displayRef}
+					/>
+				</>
+			);
+		};
+		const { getByText } = render(<InputDisplay />);
+
+		expect(document.activeElement.tagName).toBe("INPUT");
+		fireEvent.change(document.activeElement, { target: { value: query } });
+		expect(getByText(query).id).toBe("display");
+	});
+
 	test("Empty groups should be hidden", () => {
 		const formID = "form";
 		const { name, classNamePrefix } = TestProps;
