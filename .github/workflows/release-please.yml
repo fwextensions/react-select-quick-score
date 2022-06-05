@@ -10,7 +10,29 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: false
     steps:
-      - uses: google-github-actions/release-please-action@v3
+      - name: Check out Repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm run test:coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+
+      - name: Create release PR
+        uses: google-github-actions/release-please-action@v3
         with:
           release-type: node
           command: manifest
@@ -19,21 +41,4 @@ jobs:
           bump-patch-for-minor-pre-major: true
           draft: true
           draft-pull-request: true
-          changelog-types: |
-            [
-                {
-                    "type": "feat",
-                    "section": "Features",
-                    "hidden": false
-                },
-                {
-                    "type": "fix",
-                    "section": "Fixes",
-                    "hidden": false
-                },
-                {
-                    "type": "chore",
-                    "section": "Miscellaneous",
-                    "hidden": false
-                }
-            ]
+          changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
