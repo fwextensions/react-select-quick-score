@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.0.5](https://github.com/fwextensions/react-select-quick-score/compare/react-select-quick-score-v0.0.4...react-select-quick-score-v0.0.5) (2022-06-05)
+
+
+### Features
+
+* Add support for passing an `onInputChange` prop to `SelectQS` ([3ed252c](https://github.com/fwextensions/react-select-quick-score/commit/3ed252c3ea46b68c709c8f63d54cf30cc0ba563a))
+* **ci:** Add build and test steps to `release-please.yml` ([22ebb18](https://github.com/fwextensions/react-select-quick-score/commit/22ebb189dddcbf2a8915f916ff520851b1eb019b))
+* Flesh out README.md ([3ed252c](https://github.com/fwextensions/react-select-quick-score/commit/3ed252c3ea46b68c709c8f63d54cf30cc0ba563a))
+
+
+### Bug Fixes
+
+* Remove optimizeDeps from vite.config.ts ([3ed252c](https://github.com/fwextensions/react-select-quick-score/commit/3ed252c3ea46b68c709c8f63d54cf30cc0ba563a))
+
 ## [0.0.4](https://github.com/fwextensions/react-select-quick-score/compare/react-select-quick-score-v0.0.3...react-select-quick-score-v0.0.4) (2022-06-03)
 
 
