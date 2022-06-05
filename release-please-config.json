@@ -2,10 +2,9 @@
 	"packages": {
 		".": {}
 	},
-	"last-release-sha": "015ff68e2965357362a33fd655df16acf5b1adb2",
 	"bump-minor-pre-major": true,
 	"bump-patch-for-minor-pre-major": true,
 	"draft": false,
 	"draft-pull-request": true,
-	"prerelease": true
+	"prerelease": false
 }
