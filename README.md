@@ -2,6 +2,11 @@
 
 > `react-select-quick-score` adds smart autocomplete to [`react-select`](https://react-select.com/home) using [QuickScore](https://github.com/fwextensions/quick-score).
 
+[![Code Coverage][coverage-badge]][coverage]
+[![Build Status][build-badge]][build]
+[![Minzip Size][size-badge]][size]
+[![MIT License][license-badge]][license]
+
 Instead of the limited type-ahead available in `react-select` components, where the user has to type an exact substring to match a menu item, QuickScore lets users type just a few letters to quickly display a list of sensible results, sorted by how well the query matches.  [See a demo](https://fwextensions.github.io/quick-score-demo/)
 
 <img src="https://user-images.githubusercontent.com/61631/172030812-b0b564ed-4c3e-4bc7-9b64-d0f795ae8ff2.png" alt="screenshot" width="719">
@@ -56,3 +61,15 @@ If the options list includes both grouped and ungrouped items (which is not a ty
 ## License
 
 [MIT](./LICENSE) © [John Dunning](https://github.com/fwextensions)
+
+
+[build-badge]: https://github.com/fwextensions/react-select-quick-score/actions/workflows/release-please.yml/badge.svg?style=flat-square
+[build]: https://github.com/fwextensions/react-select-quick-score/actions/workflows/release-please.yml
+[coverage-badge]: https://img.shields.io/codecov/c/github/fwextensions/react-select-quick-score.svg?style=flat-square
+[coverage]: https://codecov.io/gh/fwextensions/react-select-quick-score
+[license-badge]: https://img.shields.io/npm/l/react-select-quick-score.svg?style=flat-square
+[license]: https://github.com/fwextensions/react-select-quick-score/blob/master/LICENSE
+[size-badge]: https://img.shields.io/bundlephobia/minzip/react-select-quick-score.svg?style=flat-square
+[size]: https://www.npmjs.com/package/react-select-quick-score
+[package-badge]: https://img.shields.io/npm/v/react-select-quick-score.svg?style=flat-square
+[package]: https://www.npmjs.com/package/react-select-quick-score
