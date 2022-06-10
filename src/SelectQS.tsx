@@ -61,7 +61,12 @@ function search<T>(
 	qs: QuickScore<T>,
 	query: string)
 {
-	return qs.search(query).map(({ item }) => item);
+	return qs.search(query).map(({ item, ...result }) => {
+		item._qs = result;
+
+		return item;
+	});
+//	return qs.search(query).map(({ item }) => item);
 }
 
 function searchQSInstances<T>(
