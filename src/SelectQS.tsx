@@ -11,7 +11,7 @@ import Select, {
 	Props,
 	SelectInstance
 } from "react-select";
-import { Options, QuickScore } from "quick-score";
+import {Options, QuickScore, ScoredResult} from "quick-score";
 
 interface QSGroup<T> {
 	qs: QuickScore<T>,
@@ -25,6 +25,16 @@ interface QSInstances<T> {
 
 const defaultGetOptionLabel = ({ item: { label } }) => label as string;
 const defaultGetOptionValue = ({ item: { value } }) => value as string;
+
+function extractOptions<T>(
+	results: ScoredResult<T> | ScoredResult<T>[])
+{
+	if (results instanceof Array) {
+		return results.map(({item}) => item);
+	} else {
+		return results.item;
+	}
+}
 
 function createQSInstances<T>(
 	items: T,
@@ -118,6 +128,12 @@ export default forwardRef(function SelectQS<
 		setQSInstances(qsInstances);
 		setMatchingOptions(searchQSInstances(qsInstances, query));
 	}, [options]);
+
+	if (typeof restProps.onChange === "function") {
+		const handler = restProps.onChange;
+
+		restProps.onChange = (options, actionMeta) => handler(extractOptions(options), actionMeta);
+	}
 
 	return (
 		<Select
