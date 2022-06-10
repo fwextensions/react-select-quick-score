@@ -1,10 +1,10 @@
 import React from "react";
-import { MatchedString } from "./MatchedString";
+import MatchedString from "./MatchedString";
 
 export function formatOptionQS<T>(
 	option: T)
 {
-	const { label, _qs: { matches } } = option;
+	const { item: { label }, matches } = option;
 
 	return (
 		<MatchedString

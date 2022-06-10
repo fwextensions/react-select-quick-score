@@ -19,9 +19,12 @@ interface QSGroup<T> {
 }
 
 interface QSInstances<T> {
-	options?: QuickScore<T>,
+	optionsQS?: QuickScore<T>,
 	groups?: QSGroup<T>[]
 }
+
+const defaultGetOptionLabel = ({ item: { label } }) => label as string;
+const defaultGetOptionValue = ({ item: { value } }) => value as string;
 
 function createQSInstances<T>(
 	items: T,
@@ -47,7 +50,7 @@ function createQSInstances<T>(
 	}
 
 	if (regularOptions.length) {
-		result.options = new QuickScore(regularOptions, qsOptions);
+		result.optionsQS = new QuickScore(regularOptions, qsOptions);
 	}
 
 	if (groups.length) {
@@ -57,32 +60,20 @@ function createQSInstances<T>(
 	return result;
 }
 
-function search<T>(
-	qs: QuickScore<T>,
-	query: string)
-{
-	return qs.search(query).map(({ item, ...result }) => {
-		item._qs = result;
-
-		return item;
-	});
-//	return qs.search(query).map(({ item }) => item);
-}
-
 function searchQSInstances<T>(
 	instances: QSInstances<T>,
 	query: string)
 {
-	const { options, groups } = instances;
+	const { optionsQS, groups } = instances;
 	const result = [];
 
-	if (options) {
-		result.push(...search(options, query));
+	if (optionsQS) {
+		result.push(...optionsQS.search(query));
 	}
 
 	if (groups?.length) {
 		result.push(...groups.map(({ label, qs }) =>
-			({ label, options: search(qs, query) })));
+			({ label, options: qs.search(query) })));
 	}
 
 	return result;
@@ -133,6 +124,8 @@ export default forwardRef(function SelectQS<
 			{...restProps}
 			ref={ref}
 			options={matchingOptions}
+			getOptionLabel={defaultGetOptionLabel}
+			getOptionValue={defaultGetOptionValue}
 			defaultInputValue={defaultInputValue}
 				// we don't want react-select to further filter the list of options based
 				// on the input, since QuickScore has already filtered the list to just

@@ -29,7 +29,7 @@ interface MatchedStringProps {
 	matches: readonly RangeTuple[]
 }
 
-export function MatchedString({
+export default function MatchedString({
 	string,
 	matches
 }: MatchedStringProps)
