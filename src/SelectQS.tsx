@@ -6,12 +6,15 @@ import React, {
 	ForwardedRef,
 } from "react";
 import Select, {
+	GetOptionLabel,
 	GroupBase,
 	InputActionMeta,
+	OnChangeValue,
 	Props,
+	PropsValue,
 	SelectInstance
 } from "react-select";
-import {Options, QuickScore, ScoredResult} from "quick-score";
+import { Options, QuickScore, ScoredObject, ScoredResult } from "quick-score";
 
 interface QSGroup<T> {
 	qs: QuickScore<T>,
@@ -23,15 +26,20 @@ interface QSInstances<T> {
 	groups?: QSGroup<T>[]
 }
 
-const defaultGetOptionLabel = ({ item: { label } }) => label as string;
-const defaultGetOptionValue = ({ item: { value } }) => value as string;
+interface BaseOption {
+	label: string,
+	value: string
+}
+
+const defaultGetOptionLabel = ({ item: { label } }: ScoredResult<BaseOption>) => label;
+const defaultGetOptionValue = ({ item: { value } }: ScoredResult<BaseOption>) => value;
 
 function extractOptions<T>(
-	results: ScoredResult<T> | ScoredResult<T>[])
+	results: PropsValue<ScoredObject<T>>)
 {
 	if (results instanceof Array) {
-		return results.map(({item}) => item);
-	} else {
+		return results.map(({ item }) => item);
+	} else if (results) {
 		return results.item;
 	}
 }
@@ -132,7 +140,8 @@ export default forwardRef(function SelectQS<
 	if (typeof restProps.onChange === "function") {
 		const handler = restProps.onChange;
 
-		restProps.onChange = (options, actionMeta) => handler(extractOptions(options), actionMeta);
+		restProps.onChange = (newValue: OnChangeValue<ScoredObject<Option>, IsMulti>, actionMeta) =>
+			handler(extractOptions(newValue), actionMeta);
 	}
 
 	return (
@@ -140,8 +149,10 @@ export default forwardRef(function SelectQS<
 			{...restProps}
 			ref={ref}
 			options={matchingOptions}
-			getOptionLabel={defaultGetOptionLabel}
-			getOptionValue={defaultGetOptionValue}
+				// getOptionLabel/Value expects the option will have an unknown type,
+				// despite being typed as GetOptionLabel<Option>
+			getOptionLabel={defaultGetOptionLabel as GetOptionLabel<unknown>}
+			getOptionValue={defaultGetOptionValue as GetOptionLabel<unknown>}
 			defaultInputValue={defaultInputValue}
 				// we don't want react-select to further filter the list of options based
 				// on the input, since QuickScore has already filtered the list to just
