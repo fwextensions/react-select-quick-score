@@ -1,10 +1,21 @@
 import React from "react";
+import { ScoredObject } from "quick-score";
 import MatchedString from "./MatchedString";
 
-export function formatOptionQS<T>(
-	option: T)
+function isScoredObject<T>(
+	object: any): object is ScoredObject<T>
 {
-	const { item: { label }, matches } = option;
+	return object && typeof object === "object" && typeof object.item === "object";
+}
+
+export function formatOptionQS<T>(
+	option: unknown)
+{
+	if (!isScoredObject<T>(option)) {
+		return "";
+	}
+
+	const { item: { label = "" }, matches } = option;
 
 	return (
 		<MatchedString
