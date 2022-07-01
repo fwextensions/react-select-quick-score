@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import Select, {
 	GetOptionLabel,
+	GetOptionValue,
 	GroupBase,
 	InputActionMeta,
 	OnChangeValue,
@@ -152,7 +153,7 @@ export default forwardRef(function SelectQS<
 				// getOptionLabel/Value expects the option will have an unknown type,
 				// despite being typed as GetOptionLabel<Option>
 			getOptionLabel={defaultGetOptionLabel as GetOptionLabel<unknown>}
-			getOptionValue={defaultGetOptionValue as GetOptionLabel<unknown>}
+			getOptionValue={defaultGetOptionValue as GetOptionValue<unknown>}
 			defaultInputValue={defaultInputValue}
 				// we don't want react-select to further filter the list of options based
 				// on the input, since QuickScore has already filtered the list to just

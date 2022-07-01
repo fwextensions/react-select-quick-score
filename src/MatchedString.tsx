@@ -26,12 +26,12 @@ function wrapMatches(
 
 interface MatchedStringProps {
 	string: string,
-	matches: readonly RangeTuple[]
+	matches?: readonly RangeTuple[]
 }
 
 export default function MatchedString({
 	string,
-	matches
+	matches = []
 }: MatchedStringProps)
 {
 	return (
